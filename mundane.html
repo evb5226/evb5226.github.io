@@ -1,0 +1,80 @@
+<pre>
+<font color="#434f54">// A Description of Life</font>
+ &nbsp;<font color="#434f54">// By Emily Burke</font>
+ &nbsp;<font color="#434f54">// 4/16/17</font>
+ &nbsp;<font color="#434f54">// This code can be used in conjunction with a Mechatronic setup.</font>
+ &nbsp;<font color="#434f54">// The set up includes wires, voltage, and the option to link to voltage controlling sources</font>
+
+<font color="#434f54">//Global Variables</font>
+ &nbsp;<font color="#434f54">//Characters</font>
+ &nbsp;<font color="#00979c">int</font> <font color="#000000">Engineer</font><font color="#434f54">=</font><font color="#000000">3</font><font color="#000000">;</font>
+ &nbsp;<font color="#00979c">int</font> <font color="#000000">CarSalesman</font><font color="#434f54">=</font><font color="#000000">4</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#434f54">//Life Changers</font>
+ &nbsp;<font color="#00979c">int</font> <font color="#000000">God</font><font color="#434f54">=</font><font color="#000000">1</font><font color="#000000">;</font>
+ &nbsp;<font color="#00979c">int</font> <font color="#000000">Fate</font><font color="#434f54">=</font><font color="#000000">2</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#434f54">//Status of Characters</font>
+ &nbsp;<font color="#00979c">int</font> <font color="#000000">EngineDesigner</font><font color="#434f54">=</font><font color="#000000">6</font><font color="#000000">;</font>
+ &nbsp;<font color="#00979c">int</font> <font color="#000000">Salesman</font> <font color="#434f54">=</font><font color="#000000">7</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#434f54">//Parts of Life</font>
+ &nbsp;<font color="#00979c">int</font> <font color="#000000">Number</font><font color="#000000">;</font>
+ &nbsp;<font color="#00979c">int</font> <font color="#000000">Day</font><font color="#000000">;</font>
+ &nbsp;<font color="#00979c">int</font> <font color="#000000">DailyLifeEngineer</font><font color="#000000">;</font>
+ &nbsp;<font color="#00979c">int</font> <font color="#000000">DailyLifeCarSalesman</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#00979c">bool</font> <font color="#000000">Life</font><font color="#434f54">=</font><font color="#00979c">HIGH</font><font color="#000000">;</font>
+
+<font color="#434f54">//Run Once at Start</font>
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Engineer</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Engineer comes as an input with control</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">CarSalesman</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Salesman also comes as an input</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">EngineDesigner</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//The life of the engineer in reality is an output</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Salesman</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//The salesman's life is also just an output &nbsp;</font>
+ &nbsp;<font color="#d35400">attachInterrupt</font><font color="#000000">(</font><font color="#000000">God</font><font color="#434f54">,</font> <font color="#000000">Good</font><font color="#434f54">,</font> <font color="#00979c">RISING</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//God can interrupt for better</font>
+ &nbsp;<font color="#d35400">attachInterrupt</font><font color="#000000">(</font><font color="#000000">God</font><font color="#434f54">,</font> <font color="#000000">Death</font><font color="#434f54">,</font> <font color="#00979c">FALLING</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//God can interrupt for worse</font>
+ &nbsp;<font color="#d35400">attachInterrupt</font><font color="#000000">(</font><font color="#000000">Fate</font><font color="#434f54">,</font> <font color="#000000">Guessing</font><font color="#434f54">,</font> <font color="#00979c">CHANGE</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;<font color="#434f54">//Leaving things to fate is chance</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//People are always watching</font>
+<font color="#000000">}</font>
+
+<font color="#434f54">//To Run Repeatedly Unless Interrupted</font>
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#5e6d03">do</font><font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Tasks to do while alive</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">for</font> <font color="#000000">(</font><font color="#000000">1</font><font color="#000000">;</font> <font color="#000000">Day</font><font color="#434f54">&lt;</font><font color="#000000">365</font><font color="#000000">;</font> <font color="#000000">Day</font><font color="#434f54">=</font><font color="#000000">Day</font><font color="#434f54">+</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Every day in the year</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">DailyLifeEngineer</font><font color="#434f54">=</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Engineer</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Daily life is assigned by reading pin</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">DailyLifeCarSalesman</font><font color="#434f54">=</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">CarSalesman</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Daily life is assigned by reading pin</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#000000">}</font><font color="#5e6d03">while</font> <font color="#000000">(</font><font color="#000000">Life</font><font color="#434f54">==</font><font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Do for the rest of life</font>
+<font color="#000000">}</font>
+
+<font color="#434f54">//When God interrupts for Good</font>
+<font color="#00979c">void</font> <font color="#000000">Good</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">EngineDesigner</font><font color="#434f54">,</font><font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Engineer feels good</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Salesman</font><font color="#434f54">,</font><font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Car Salesman feels good</font>
+<font color="#000000">}</font>
+
+<font color="#434f54">//When Fate interrupts</font>
+<font color="#00979c">void</font> <font color="#000000">Guessing</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;<font color="#000000">Number</font><font color="#434f54">=</font><font color="#d35400">random</font><font color="#000000">(</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Random number generation</font>
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">Number</font><font color="#434f54">==</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//If random number </font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">EngineDesigner</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Both feel low</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Salesman</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">else</font> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">Number</font><font color="#434f54">==</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//if random number</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">EngineDesigner</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Both feel high</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Salesman</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">else</font><font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//if random number</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">EngineDesigner</font><font color="#434f54">,</font><font color="#d35400">random</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Engineer may feel good or bad</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Salesman</font><font color="#434f54">,</font><font color="#d35400">random</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//CarSalesman may feel good or bad</font>
+ &nbsp;<font color="#000000">}</font> 
+<font color="#000000">}</font>
+
+<font color="#434f54">//When God interrupts for Bad</font>
+<font color="#00979c">void</font> <font color="#000000">Death</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;<font color="#000000">Life</font><font color="#434f54">=</font><font color="#00979c">LOW</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//All those die</font>
+<font color="#000000">}</font>
+
+
+</pre>
